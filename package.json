@@ -1,0 +1,24 @@
+{
+  "name": "express-start-kit",
+  "version": "1.0.0",
+  "description": "CLI tool for generating an Express js starter file structure",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "postinstall": "node index.js"
+  },
+  "keywords": [
+    "express",
+    "starter",
+    "file structure",
+    "cli"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "bin": {
+    "express-start-kit": "./index.js"
+  },
+  "dependencies": {
+    "mkdirp": "^1.0.4"
+  }
+}
