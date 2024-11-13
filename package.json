@@ -1,5 +1,5 @@
 {
-  "name": "express-start-kit",
+  "name": "create-express",
   "version": "1.0.0",
   "description": "CLI tool for generating an Express js starter file structure",
   "main": "index.js",
