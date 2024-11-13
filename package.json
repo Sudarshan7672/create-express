@@ -1,6 +1,6 @@
 {
   "name": "create-express-latest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool for generating an Express js starter file structure",
   "main": "index.js",
   "scripts": {
