@@ -15,6 +15,9 @@ const createFile = (filePath, content) => {
 
 // Main function to generate the file structure
 const generateExpressStructure = () => {
+  // Get the current working directory
+  const baseDir = process.cwd();
+
   // Define the directories and files
   const dirs = [
     'src/controllers',
@@ -29,7 +32,7 @@ const generateExpressStructure = () => {
   ];
 
   // Create directories
-  dirs.forEach((dir) => mkdirp.sync(path.join(__dirname, dir)));
+  dirs.forEach((dir) => mkdirp.sync(path.join(baseDir, dir)));
 
   // Create a basic Express server file
   const serverContent = `
@@ -90,9 +93,9 @@ module.exports = connectDB;
 `;
 
   // Create necessary files
-  createFile(path.join(__dirname, 'server.js'), serverContent);
-  createFile(path.join(__dirname, '.env'), dotenv);
-  createFile(path.join(__dirname, 'src/config/db.js'), dbConfig);
+  createFile(path.join(baseDir, 'server.js'), serverContent);
+  createFile(path.join(baseDir, '.env'), dotenv);
+  createFile(path.join(baseDir, 'src/config/db.js'), dbConfig);
 
   // Create example route
   const routeContent = `
@@ -106,7 +109,7 @@ router.get('/sample', getSample);
 module.exports = router;
 `;
 
-  createFile(path.join(__dirname, 'src/routes/sampleRoute.js'), routeContent);
+  createFile(path.join(baseDir, 'src/routes/sampleRoute.js'), routeContent);
 
   // Create basic package.json
   const packageJsonContent = `{
@@ -118,18 +121,16 @@ module.exports = router;
     "start": "node server.js"
   },
   "dependencies": {
-  "express": "*",
-  "dotenv": "*",
-  "mongoose": "*",
-  "nodemon": "*",
-},
+    "express": "*",
+    "dotenv": "*",
+    "mongoose": "*",
+    "nodemon": "*"
+  },
   "devDependencies": {},
   "license": "ISC"
-}
+}`;
 
-`;
-
-  createFile(path.join(__dirname, 'package.json'), packageJsonContent);
+  createFile(path.join(baseDir, 'package.json'), packageJsonContent);
 
   // Create .gitignore file
   const gitignoreContent = `
@@ -139,7 +140,7 @@ node_modules/
 .vscode
 `;
 
-  createFile(path.join(__dirname, '.gitignore'), gitignoreContent);
+  createFile(path.join(baseDir, '.gitignore'), gitignoreContent);
 
   // Create README.md
   const readmeContent = `# Express Starter Kit
@@ -161,7 +162,7 @@ This is a simple starter kit for building Express.js applications.
 - \`middleware/\`: Express middlewares.
 `;
 
-  createFile(path.join(__dirname, 'README.md'), readmeContent);
+  createFile(path.join(baseDir, 'README.md'), readmeContent);
 
   console.log('Express structure has been created successfully!');
 };

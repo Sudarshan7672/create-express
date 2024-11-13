@@ -1,5 +1,5 @@
 {
-  "name": "create-express",
+  "name": "create-express-latest",
   "version": "1.0.0",
   "description": "CLI tool for generating an Express js starter file structure",
   "main": "index.js",
@@ -8,15 +8,16 @@
     "postinstall": "node index.js"
   },
   "keywords": [
-    "express",
-    "starter",
-    "file structure",
-    "cli"
+    "npm",
+    "express-structure",
+    "express-starter-file",
+    "express-file-structure",
+    "express-cli"
   ],
   "author": "Your Name",
   "license": "ISC",
   "bin": {
-    "express-start-kit": "./index.js"
+    "create-express-latest": "./index.js"
   },
   "dependencies": {
     "mkdirp": "^1.0.4"
